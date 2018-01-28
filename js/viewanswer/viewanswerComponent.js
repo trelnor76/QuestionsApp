@@ -4,7 +4,7 @@ angular.module('questionApp').component('viewanswerComponent', {
     controller: 'viewanswerController'
 
 	bindings: {
-        title: '='
+        submission: '='
     }
 
 })

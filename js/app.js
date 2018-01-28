@@ -29,6 +29,7 @@ angular.module('questionApp', ['ui.router', 'xeditable']).run(function (editable
       	.state(viewAnswerState)
 
         $urlRouterProvider.otherwise('/viewanswer')
+		
     }
 
 ])
