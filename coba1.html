@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+  <script src="js/lib/angular.js"></script>
+  <script src="js/lib/angular-ui-router.js"></script>
+
+  <script src="js/lib/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/lib/bootstrap-toggle.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript">
+        var app = angular.module('MyApp', [])
+        app.controller('MyController', function ($scope, $window) {
+            $scope.Tags = [];
+ 
+            $scope.Add = function () {
+                //Add the new item to the Array.
+                var q = {};
+                q.Tag = $scope.Tag;
+                $scope.Tags.push(q);
+ 
+                //Clear the TextBoxes.
+                $scope.Tag = "";
+            };
+ 
+            $scope.Remove = function (index) {
+                //Find the record using Index from Array.
+                var name = $scope.Tags[index].Tag;
+                if ($window.confirm("Do you want to delete: " + name)) {
+                    //Remove the item from Array using Index.
+                    $scope.Tags.splice(index, 1);
+                }
+            }
+        });
+    </script>
+    <div ng-app="MyApp" ng-controller="MyController">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th>Tag</th>
+                <th></th>
+            </tr>
+            <tbody ng-repeat="m in Tags">
+                <tr>
+                    <td><input type="text" value="{{m.Tag}}" /></td>
+                    <td><input type="button" ng-click="Remove($index)" value="Remove" /></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><input type="text" ng-model="Tag" /></td>
+                    <td><input type="button" ng-click="Add()" value="Add" /></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
