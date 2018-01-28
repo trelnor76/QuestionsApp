@@ -17,11 +17,18 @@ angular.module('questionApp', ['ui.router', 'xeditable']).run(function (editable
             component: 'viewquestionComponent'
         }
 
+        const viewAnswerState = {
+            // abstract: true,
+            name: 'viewanswer',
+            url: '/viewanswer',
+            component: 'viewanswerComponent'
+        }
 
         $stateProvider.state(questionState)
       	.state(viewQuestionState)
+      	.state(viewAnswerState)
 
-        $urlRouterProvider.otherwise('/viewquestion')
+        $urlRouterProvider.otherwise('/viewanswer')
     }
 
 ])

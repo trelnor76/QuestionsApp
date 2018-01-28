@@ -1,0 +1,19 @@
+<div class="answer-box">
+        <div class="formtitle">Post Question
+                <div class="formsubtitle">Answers to your Question</div>
+        </div>
+        
+        <div class="formbody" >
+                <div >Title of Question : </div> <input type="text" class="form-text" id="asker" ng-style="{'border-color': $ctrl.something }" ng-model="$ctrl.title">
+        </div>
+
+        <div class="formfooter" >   
+                <button class='formbutton' ng-click='$ctrl.getAnswer()'>Post</button>
+        </div>
+
+</div>
+
+<div class="jay-box" ng-repeat="answer in $ctrl.answers">
+    Answers : 
+    {{answer.content}}
+</div>
