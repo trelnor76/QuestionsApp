@@ -11,6 +11,10 @@ angular.module('questionApp').controller('viewanswerController', ['viewanswerSer
 				alert('error')
             })
         }					
-			
+		
+	this.doTest = () => {
+		$state.go("viewquestion") 
+	}
+	
     }
 ])

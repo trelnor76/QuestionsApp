@@ -3,9 +3,16 @@ angular.module('questionApp', ['ui.router', 'xeditable']).run(function (editable
 }).config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
 
+        const sessionState = {
+            abstract: true,
+            name: 'session',
+            url: '',
+            component: 'sessionComponent'
+        }
+         
         const questionState = {
             // abstract: true,
-            name: 'question',
+            name: 'session.question',
             url: '/question',
             component: 'questionComponent'
         }
@@ -27,8 +34,9 @@ angular.module('questionApp', ['ui.router', 'xeditable']).run(function (editable
         $stateProvider.state(questionState)
       	.state(viewQuestionState)
       	.state(viewAnswerState)
+		.state(sessionState)
 
-        $urlRouterProvider.otherwise('/viewanswer')
+        $urlRouterProvider.otherwise('/question')
 		
     }
 

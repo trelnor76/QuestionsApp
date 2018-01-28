@@ -1,5 +1,5 @@
-angular.module('questionApp').controller('questionController', ['questionService', '$state',
-    function (questionService, $state) {
+angular.module('questionApp').controller('questionController', ['testService', 'questionService', '$state',
+    function (testService, questionService, $state) {
         this.submission = {}
 		$state.questions = []
         $state.Tags = []
@@ -25,6 +25,7 @@ angular.module('questionApp').controller('questionController', ['questionService
         
 
         this.postQuestion = () => {
+			testService.doTest3()
             questionService.postQuestion(this.submission).then((succeedResponse) => {
                 //we can do something here
 				alert('success')
